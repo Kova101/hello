@@ -4,6 +4,7 @@ import "fmt"
 
 // Type definition non-literal
 type Person struct {
+	Home Address
 	Name string
 	Age  int
 }
@@ -11,6 +12,22 @@ type Person struct {
 type Group map[string]Person
 
 var g = Group{}
+
+// Embedding example
+type Circle struct {
+	r int
+	Point
+}
+
+type Point struct {
+	x int
+	y int
+}
+
+type Address struct {
+	City   string
+	Street string
+}
 
 func main() {
 	add("Jenő", 20)
@@ -22,6 +39,12 @@ func main() {
 	list()
 	search("Répa")
 	search("Non existent person")
+
+	var c Circle
+	c.x = 100
+	c.y = 100
+	c.r = 50
+	fmt.Println(c)
 }
 
 func add(name string, age int) {
