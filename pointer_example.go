@@ -34,6 +34,17 @@ func main() {
 
 	np := newInt()
 	fmt.Println("newInt() pointer:", np, *np)
+
+	// Advanced
+	var i *int
+
+	if i == nil {
+		i = new(int)
+		*i = 3
+		fmt.Println("meh")
+	}
+
+	fmt.Println(*i)
 }
 
 // Wrong method for pointer override
